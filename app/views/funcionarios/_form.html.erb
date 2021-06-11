@@ -1,0 +1,43 @@
+<%= form_with(model: funcionario) do |form| %>
+  <% if funcionario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(funcionario.errors.count, "error") %> prohibited this funcionario from being saved:</h2>
+
+      <ul>
+        <% funcionario.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email %>
+    <%= form.email_field :email, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :papel %>
+    <%= form.select :papel,  [[:admin]], {prompt: "Selecione"}, class:"form-control" %>
+  </div>
+
+
+  <div class="field form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class:"form-control" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>

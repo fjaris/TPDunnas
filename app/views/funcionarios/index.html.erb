@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Funcionarios</h1>
+
+<table class="table table-bordered">
+  <thead class="table table-dark">
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Papel</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funcionarios.each do |funcionario| %>
+      <tr>
+        <td><%= funcionario.nome %></td>
+        <td><%= funcionario.email %></td>
+        <td><%= funcionario.papel %></td>
+        <td><%= link_to 'Show', funcionario %></td>
+        <td><%= link_to 'Edit', edit_funcionario_path(funcionario) %></td>
+        <td><%= link_to 'Destroy', funcionario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '+ New Funcionario', new_funcionario_path, class:"btn btn-primary" %>

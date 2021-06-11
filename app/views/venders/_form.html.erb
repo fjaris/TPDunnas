@@ -1,0 +1,28 @@
+<%= form_with(model: vender) do |form| %>
+  <% if vender.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vender.errors.count, "error") %> prohibited this vender from being saved:</h2>
+
+      <ul>
+        <% vender.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :produto_id %>
+    <%= form.select :produto_id, Produto.all.collect {|p| [p.nome, p.id] }, {include_blank: true}, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :cliente_id %>
+    <%= form.select :cliente_id, Cliente.all.collect {|c| [c.usuario, c.id] }, {include_blank: true}, class:"form-control" %>
+  </div>
+
+<br>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>

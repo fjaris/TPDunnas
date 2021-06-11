@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  email: MyString
+  usuario: MyString
+  password: MyString
+  password_confirmation: MyString
+  saldo: 9.99
+
+two:
+  nome: MyString
+  email: MyString
+  usuario: MyString
+  password: MyString
+  password_confirmation: MyString
+  saldo: 9.99

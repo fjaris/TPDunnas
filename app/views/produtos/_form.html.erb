@@ -1,0 +1,43 @@
+<%= form_with(model: produto) do |form| %>
+  <% if produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+
+      <ul>
+        <% produto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :descricao %>
+    <%= form.text_area :descricao, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :foto %>
+    <%= form.file_field :foto, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :categoria_id %>
+    <%= form.select :categoria_id, Categoria.all.collect {|c| [c.nome, c.id] }, {include_blank: true}, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :preco %>
+    <%= form.number_field :preco, class:"form-control" %>
+  </div>
+
+  <br>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>
