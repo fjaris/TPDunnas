@@ -31,10 +31,12 @@
         <%= link_to "Funcionários", funcionarios_path, class:"navbar-brand"%>
         <%= link_to "Clientes", clientes_path, class:"navbar-brand"%>
         <%= link_to "Produtos", produtos_path, class:"navbar-brand"%>
-        <%= link_to "Vender",  venders_path, class:"navbar-brand"%>
+        <%= link_to "Trocas",  trocas_path, class:"navbar-brand"%>
+        <%= link_to "Pontos",  pontos_path, class:"navbar-brand"%>
 
         
         <a class="st" href="/"><%= current_funcionario.nome%></a>
+        
         <%= link_to "Sair", destroy_funcionario_session_path, method: :delete, class:"navbar-brand st2" %></li>
    </ul>  
         <% end %>    

@@ -26,20 +26,19 @@
     <%= form.text_field :usuario, class:"form-control" %>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :password %>
-    <%= form.password_field :password, class:"form-control" %>
-  </div>
+  <% unless cliente.persisted? %>
 
-  <div class="field form-group">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, class:"form-control" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :password %>
+      <%= form.password_field :password, class:"form-control" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :saldo %>
-    <%= form.number_field :saldo, class:"form-control" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, class:"form-control" %>
+    </div>
+
+  <% end %>
 
   <br>
   <div class="actions">

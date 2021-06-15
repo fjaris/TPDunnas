@@ -19,4 +19,6 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'cliente', 'clientes'
   inflect.irregular 'funcionario', 'funcionarios'
   inflect.irregular 'produto', 'produtos'
+  inflect.irregular 'troca', 'trocas'
+  inflect.irregular 'ponto', 'pontos'
 end

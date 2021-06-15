@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trocas</h1>
+
+<table class="table table-bordered">
+  <thead class="table table-dark">
+    <tr>
+      <th>Produto</th>
+      <th>Cliente</th>
+      <th>Status</th>
+      <th>Pontos</th>
+      <th colspan="3">Opções</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trocas.each do |troca| %>
+      <tr>
+        <td><%= troca.produto.try(:nome) %></td>
+        <td><%= troca.cliente.try(:usuario) %></td>
+        <td><%= troca.status%></td>    
+        <td><%= troca.pontos%></td>    
+        <td><%= link_to 'Show', troca %></td>
+        <td><%= link_to 'Edit', edit_troca_path(troca) %></td>
+        <td><%= link_to 'Destroy', troca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Trocar', new_troca_path, class:"btn btn-primary" %>

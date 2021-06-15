@@ -1,5 +1,5 @@
 class ClientesController < ApplicationController
-  before_action :set_cliente, only: %i[ show edit update destroy ]
+  before_action :set_cliente, only: %i[ show edit edit_password update update_password destroy ]
 
   # GET /clientes or /clientes.json
   def index
@@ -19,6 +19,9 @@ class ClientesController < ApplicationController
   def edit
   end
 
+  def edit_password
+
+  end
   
 
   # POST /clientes or /clientes.json
@@ -49,6 +52,18 @@ class ClientesController < ApplicationController
     end
   end
 
+  def update_password
+    respond_to do |format|
+      if @cliente.update(cliente_params_password)
+        format.html { redirect_to @cliente, notice: "Cliente was successfully updated." }
+        format.json { render :show, status: :ok, location: @cliente }
+      else
+        format.html { render :edit_password, status: :unprocessable_entity }
+        format.json { render json: @cliente.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /clientes/1 or /clientes/1.json
   def destroy
     @cliente.destroy
@@ -66,6 +81,10 @@ class ClientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cliente_params
-      params.require(:cliente).permit(:nome, :email, :usuario, :password, :password_digest, :password_confirmation, :saldo)
+      params.require(:cliente).permit(:nome, :email, :usuario)
+    end
+
+    def cliente_params_password
+      params.require(:cliente).permit(:password, :password_confirmation)
     end
 end

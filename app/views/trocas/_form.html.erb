@@ -1,10 +1,10 @@
-<%= form_with(model: vender) do |form| %>
-  <% if vender.errors.any? %>
+<%= form_with(model: troca) do |form| %>
+  <% if troca.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(vender.errors.count, "error") %> prohibited this vender from being saved:</h2>
+      <h2><%= pluralize(troca.errors.count, "error") %> prohibited this troca from being saved:</h2>
 
       <ul>
-        <% vender.errors.each do |error| %>
+        <% troca.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -21,6 +21,15 @@
     <%= form.select :cliente_id, Cliente.all.collect {|c| [c.usuario, c.id] }, {include_blank: true}, class:"form-control" %>
   </div>
 
+
+  <% if troca.persisted? %>
+
+    <div class="field form-group">
+      <%= form.label :status %>
+      <%= form.select :status, Troca.statuses.collect  {|s| [s[0], s[0]]}, {include_blank: true}, class:"form-control" %>
+    </div>
+
+  <% end %>
 <br>
   <div class="actions">
     <%= form.submit class:"btn btn-primary" %>
